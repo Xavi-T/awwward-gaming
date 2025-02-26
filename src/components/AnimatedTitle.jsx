@@ -2,7 +2,7 @@
 import gsap from 'gsap/all';
 import { useEffect, useRef } from 'react';
 
-const AnimatedTitle = ({ title, containerClass }) => {
+const AnimatedTitle = ({ title, containerClass, sectionId }) => {
   const containerRef = useRef(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,7 +26,11 @@ const AnimatedTitle = ({ title, containerClass }) => {
     }, containerRef);
   }, []);
   return (
-    <div ref={containerRef} className={`animated-title ${containerClass}`}>
+    <div
+      id={sectionId}
+      ref={containerRef}
+      className={`animated-title ${containerClass}`}
+    >
       {title.split('<br />').map((line, index) => (
         <div
           className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
