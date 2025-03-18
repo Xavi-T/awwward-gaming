@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useWindowScroll } from 'react-use';
+import { FaPlayCircle, FaRegPauseCircle } from 'react-icons/fa';
 import gsap from 'gsap/all';
 
 const navItems = ['Nexus', 'Valuts', 'Prologue', 'About', 'Contact'];
@@ -64,7 +65,11 @@ const Navbar = () => {
         <nav className="flex size-full items-center justify-between p-4">
           {/* right navbar */}
           <div className="flex items-center gap-7">
-            <img src="/img/logo.png" alt="logo" className="w-10" />
+            <img
+              src="/img/naruto.png"
+              alt="logo"
+              className="w-12 h-12 rounded-full"
+            />
             <Button
               id={'product-button'}
               title={'Products'}
@@ -90,6 +95,11 @@ const Navbar = () => {
               className="ml-10 flex items-center space-x-0.5"
               onClick={toggleAudioIndicator}
             >
+              {isAudioPlaying ? (
+                <FaRegPauseCircle className="text-white mr-1" />
+              ) : (
+                <FaPlayCircle className="text-white mr-1" />
+              )}
               <audio
                 ref={audioElementRef}
                 className="hidden"
